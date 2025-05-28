@@ -1,3 +1,16 @@
 # NeoVim
 
-My neovim configand a script to take copy it from and to the config folder for neovim.
+My neovim configuration, a script to take a copy of it, and send it to the config folder for neovim.
+
+## Installed plugins
+
+- Catppuccin
+- Lsp Config
+    - Mason
+    - Lsp Config Mason
+    - Lsp Config
+- Lualine
+- Neo-tree
+- Noice
+- Telescope
+- Treesitter
