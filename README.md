@@ -4,7 +4,7 @@ My neovim configuration, a script to take a copy of it, and send it to the confi
 
 ## Installed plugins
 
-- Catppuccin
+- Gruvbox
 - Lsp Config
     - Mason
     - Lsp Config Mason
