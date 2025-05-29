@@ -11,3 +11,6 @@ vim.cmd("set relativenumber")
 -- General mappings
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+
+-- Diagnostic config
+vim.diagnostic.config { virtual_text = true }
