@@ -24,9 +24,10 @@ return {
     {
         "neovim/nvim-lspconfig",
         config = function ()
+            local capabalities = require("cmp_nvim_lsp").default_capabilities()
             local lspconfig = require("lspconfig")
-            lspconfig.lua_ls.setup({})
-            lspconfig.pylsp.setup({})
+            lspconfig.lua_ls.setup({capabalities = capabalities})
+            lspconfig.pylsp.setup({capabalities = capabalities})
             require("lspKeymaps")
         end,
     }

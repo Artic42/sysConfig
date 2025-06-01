@@ -8,6 +8,8 @@ vim.cmd("set shiftwidth=4")
 vim.cmd("set number")
 vim.cmd("set relativenumber")
 
+-- Remove mouse repositioning the cursor
+vim.cmd("set mouse=")
 -- General mappings
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
