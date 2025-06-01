@@ -15,6 +15,7 @@ return {
                 "latex",
                 "html",
                 "bash",
+                "yaml",
             },
             highlight = { enable = true },
             indent = { enable = true },
