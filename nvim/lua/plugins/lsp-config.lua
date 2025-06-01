@@ -12,6 +12,11 @@ return {
                 ensure_installed = {
                     "lua_ls",
                     "pylsp",
+                    "dockerls",
+                    "docker_compose_language_service",
+                    "bashls",
+                    "nginx_language_server",
+                    "yamlls"
                 }
             })
         end
