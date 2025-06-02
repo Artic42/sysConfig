@@ -3,12 +3,14 @@ return {
     dependencies = {
         "rcarriga/nvim-dap-ui",
         "nvim-neotest/nvim-nio",
+        "mfussenegger/nvim-dap-python",
     },
     config = function()
         local dap = require("dap")
         local dapui = require("dapui")
 
         dapui.setup()
+        require("dap-python").setup("python3")
 
         -- Basic keys for debugger
         vim.keymap.set("n", "<F5>", dap.continue, {})
@@ -50,5 +52,28 @@ return {
         dap.listeners.before.event_exited.dapui_config = function()
             dapui.close()
         end
+
+        -- Python debugger config
+        dap.configurations.python = {
+            {
+                type = "python",
+                request = "launch",
+                name = "Launch file",
+                program = "${file}",
+                pythonPath = function()
+                    -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
+                    -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
+                    -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
+                    local cwd = vim.fn.getcwd()
+                    if vim.fn.executable(cwd .. "/venv/bin/python") == 1 then
+                        return cwd .. "/venv/bin/python"
+                    elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
+                        return cwd .. "/.venv/bin/python"
+                    else
+                        return "/usr/bin/python"
+                    end
+                end,
+            },
+        }
     end,
 }

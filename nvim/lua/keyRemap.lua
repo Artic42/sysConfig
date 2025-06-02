@@ -14,3 +14,6 @@ vim.keymap.set("n", "<C-s>", ":w<CR>")
 vim.keymap.set("n", "<C-k><C-s>", ":wa<CR>")
 vim.keymap.set("n", "<C-k><C-q>", ":xa<CR>")
 
+-- Enable or disable mouse
+vim.keymap.set("n", "<C-k><C-e>", "<cmd>set mouse=a<cr>")
+vim.keymap.set("n", "<C-k><C-d>", "<cmd>set mouse=<cr>")
