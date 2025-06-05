@@ -1,27 +1,27 @@
-# Append history rather than overwrite
-set-env config.history_file_format = "plaintext"
+# Don't put duplicate lines or lines starting with space in history
+$env.HISTORY_IGNORE = ['duplicates', 'leading_space']
 
-# Set history limits
-set-env config.history_max_size = 2000
-set-env config.history_max_entries = 1000
+# Set history size limits
+$env.HISTORY_SIZE = 1000
+$env.HISTORY_FILE_SIZE = 2000
 
-# Check terminal size after each command (Nushell handles this automatically)
+# Enable checking window size after each command
+$env.CHECK_WINSIZE = true
 
-# Enable aliases
-alias ls = ls --color=auto
-alias grep = grep --color=auto
-alias fgrep = grep --fixed-strings --color=auto
-alias egrep = grep --extended-regexp --color=auto
+# Enable alias expansion
+$env.EXPAND_ALIASES = true
 
-# Load system aliases
-if (path exists ~/.config/nushell/aliases.nu) {
-    source ~/.config/nushell/aliases.nu
-}
+# Append to history instead of overwriting
+$env.HIST_APPEND = true
 
-# Source custom prompt
+# Colored GCC warnings and errors
+$env.GCC_COLORS = 'error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# Load custom NuShell prompt (assuming it's in ~/.bashPrompt)
 if ($nu.is-interactive) {
-    if (path exists ~/.config/nushell/prompt.nu) {
-        source ~/.config/nushell/prompt.nu
-    }
+    source ~/.config/nushell/prompt.nu
 }
+
+# Load alias file
+source ~/.config/nushell/aliases.nu
 
