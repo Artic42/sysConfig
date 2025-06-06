@@ -39,8 +39,8 @@ $env.PROMPT_COMMAND = {||
         $"($green)k" 
     }
 
-    let is_git = (git rev-parse --is-inside-work-tree err> /dev/null)
-    let git = if ($is_git == "true") {
+    let is_git = (isGit)
+    let git = if ($is_git == "1") {
         let branch = (git rev-parse --abbrev-ref HEAD | str trim) 
         let branch_str = $"($separator)($bold)($pink)($branch)"
 

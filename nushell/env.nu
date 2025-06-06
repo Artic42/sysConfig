@@ -1,5 +1,6 @@
-$env.SSH_KEY = "/home/artic/.keys/Artemis"
+$env.SSH_KEY = $"($env.HOME)/.keys/Artemis"
 $env.HOSTNAME = ^hostname
+$env.PATH = ($env.PATH | append $"($env.HOME)/bin")
 
 
 $env.config.buffer_editor = "vi"
