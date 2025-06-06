@@ -18,9 +18,10 @@ let host_color = $bold + $orange
 let directory_color = $light_purple
 let etc_color = $red
 
-
-# Last prompt symbol (# for root, $ otherwise)
-let symbol = $bold + $bright_red + "$"
+let separator = $"($etc_color)]-["
+let start = $"($etc_color)┌─["
+let end = $"($etc_color)]\n"
+let secondLine = $"($etc_color)└──╼ $($reset)"
 
 # Construct the prompt
 $env.PROMPT_COMMAND = {||
@@ -32,15 +33,25 @@ $env.PROMPT_COMMAND = {||
 
     # If last command failed, add [✗] to the prompt
     let on_error = if ($env.LAST_EXIT_CODE != 0) {
-        $"($etc_color)[($at_color)✗($etc_color)]─" 
+        $"($at_color)✗" 
     } else {
-        $"($etc_color)[($green)k($etc_color)]─" 
+        $"($green)k" 
+    }
+
+    let is_git = (git rev-parse --is-inside-work-tree err> /dev/null)
+    if ($is_git == "true") {
+        let branch = (git rev-parse --abbrev-ref HEAD | str trim) 
+        $env.git_branch = $"($separator)($bold)($green)($branch)($reset)"
+    } else {
+        $env.git_branch = ""
     }
 
     let directory = $"($directory_color)($dir)"
     let user = $"($username_color)($env.USER)"
     let host = $"($host_color)($env.HOSTNAME)"
+    let git_branch = $env.git_branch
 
-    $"($etc_color)┌─($on_error)[($user)($at_color)@($host)($etc_color)]-[($directory)($etc_color)]\n└──╼ ($symbol)($reset)"}
+    $"($start)($on_error)($separator)($user)($separator)($host)($separator)($directory)($git_branch)($end)($secondLine)"
+}
+
 $env.PROMPT_INDICATOR = " "
-#$env.PROMPT_INDICATOR = ">"
