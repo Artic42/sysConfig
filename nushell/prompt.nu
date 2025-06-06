@@ -40,7 +40,7 @@ $env.PROMPT_COMMAND = {||
     }
 
     let is_git = (isGit)
-    let git = if ($is_git == "1") {
+    let git = if ($is_git == "True") {
         let branch = (git rev-parse --abbrev-ref HEAD | str trim) 
         let branch_str = $"($separator)($bold)($pink)($branch)"
 

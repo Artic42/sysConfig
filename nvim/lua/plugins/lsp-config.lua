@@ -16,7 +16,8 @@ return {
                     "docker_compose_language_service",
                     "bashls",
                     "nginx_language_server",
-                    "yamlls"
+                    "yamlls",
+                    "clangd",
                 }
             })
         end
