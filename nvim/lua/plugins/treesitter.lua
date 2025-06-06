@@ -16,6 +16,7 @@ return {
                 "html",
                 "bash",
                 "yaml",
+                "nu",
             },
             highlight = { enable = true },
             indent = { enable = true },
