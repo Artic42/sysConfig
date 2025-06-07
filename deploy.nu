@@ -9,3 +9,7 @@ cp -r nushell/ $"($env.HOME)/.config/nushell"
 # Compile isGit and install it on ${HOME}/bin
 gcc isGit.c -o isGit.app
 cp isGit.app $"($env.HOME)/bin/isGit"
+
+# Rerun  nushell config
+source $"($($env.HOME)/.config/nushell/env.nu"
+source $"($($env.HOME)/.config/nushell/config.nu"
