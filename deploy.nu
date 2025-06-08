@@ -6,10 +6,14 @@ cp -r nvim/ $"($env.HOME)/.config/nvim"
 rm -rf $"($env.HOME)/.config/nushell"
 cp -r nushell/ $"($env.HOME)/.config/nushell"
 
+# Copy tmux config 
+rm -f $"($env.HOME)/.tmux.conf"
+cp tmux/tmux.conf $"($env.HOME)/.tmux.conf"
+
 # Compile isGit and install it on ${HOME}/bin
 gcc isGit.c -o isGit.app
 cp isGit.app $"($env.HOME)/bin/isGit"
 
 # Rerun  nushell config
-source $"($($env.HOME)/.config/nushell/env.nu"
-source $"($($env.HOME)/.config/nushell/config.nu"
+source ~/.config/nushell/env.nu
+source ~/.config/nushell/config.nu

@@ -17,6 +17,7 @@ return {
                 "bash",
                 "yaml",
                 "nu",
+                "tmux",
             },
             highlight = { enable = true },
             indent = { enable = true },
