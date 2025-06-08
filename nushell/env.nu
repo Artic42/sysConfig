@@ -7,6 +7,9 @@ $env.SSH_KEY = $"($env.HOME)/.keys/($env.HOSTNAME)"
 # Add {HOME}/bin to the path for my cli applications
 $env.PATH = ($env.PATH | append $"($env.HOME)/bin")
 
+# Add tmuxifier to path
+$env.PATH = ($env.PATH | append $"($env.HOME)/.tmuxifier/bin")
+ 
 # Set NVIM as the config editor
 $env.config.buffer_editor = "/usr/bin/nvim"
 
