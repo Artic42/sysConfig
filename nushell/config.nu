@@ -6,6 +6,3 @@ if ($nu.is-interactive) {
 # Load alias file
 source ~/.config/nushell/aliases.nu
 
-cd $env.HOME
-
-

@@ -22,3 +22,6 @@ alias rbn = sudo reboot
 alias l = ls
 alias la = ls -a
 alias ll = ls -la
+
+# Wierd bash compatibility aliases
+alias "echo -e" = echo
