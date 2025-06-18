@@ -14,6 +14,24 @@ cp tmux/tmux.conf $"($env.HOME)/.tmux.conf"
 gcc isGit.c -o isGit.app
 cp isGit.app $"($env.HOME)/bin/isGit"
 
+# Install tmuxifier if it's not
+let tmuxifier_exist = ($"/($env.HOME)/.tmuxifier" | path exists)
+if ($tmuxifier_exist) {
+    print "Tmuxifier already installled"
+} else {
+    print "Tmuxifier not installled, installing..."
+    git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
+}
+
+# Install tmuxifier if it's not
+let tpm_exist = ($"/($env.HOME)/.tmux/plugins/tpm" | path exists)
+if ($tpm_exist) {
+    print "TPM already installled"
+} else {
+    print "TPM not installled, installing..."
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 
+}
+
 # Rerun  nushell config
 source ~/.config/nushell/env.nu
 source ~/.config/nushell/config.nu
