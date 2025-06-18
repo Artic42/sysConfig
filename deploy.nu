@@ -32,6 +32,9 @@ if ($tpm_exist) {
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 
 }
 
+# Copy tmux layouts to tmuxifier
+cp tmuxifiers/layouts/* $"($env.HOME)/.tmuxifier/layouts/"
+
 # Rerun  nushell config
 source ~/.config/nushell/env.nu
 source ~/.config/nushell/config.nu
