@@ -6,14 +6,9 @@ return {
         config.setup({
             ensure_installed = {
                 "lua",
-                "javascript",
                 "c",
                 "python",
                 "cpp",
-                "css",
-                "dockerfile",
-                "latex",
-                "html",
                 "bash",
                 "yaml",
                 "nu",
