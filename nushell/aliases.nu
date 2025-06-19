@@ -8,7 +8,8 @@ alias vim = nvim
 
 # Tmux Shortcuts
 alias tmuxs = tmux new -s
-alias tmuxa = tmux attach
+alias tmuxl = tmuxifier load-session
+alias tmuxa = tmux attach-session -t
 alias tmuxd = tmux detach
 
 # Python alias
