@@ -10,7 +10,7 @@ alias vim = nvim
 alias tmuxs = tmux new -s
 alias tmuxl = tmuxifier load-session
 alias tmuxa = tmux attach-session -t
-alias tmuxd = tmux detach
+alias tmuxd = tmux dettach
 
 # Python alias
 alias python = python3
