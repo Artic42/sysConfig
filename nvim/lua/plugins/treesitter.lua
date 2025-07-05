@@ -17,9 +17,12 @@ return {
                 "yaml",
                 "nu",
                 "tmux",
+                "markdown",
+                "markdown_inline",
             },
             highlight = { enable = true },
             indent = { enable = true },
+            markdown = { enable = true },
         })
     end,
 }
