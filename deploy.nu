@@ -10,6 +10,14 @@ cp -r nushell/ $"($env.HOME)/.config/nushell"
 rm -f $"($env.HOME)/.tmux.conf"
 cp tmux/tmux.conf $"($env.HOME)/.tmux.conf"
 
+# Hyprland config
+rm -rf $"($env.HOME)/.config/hypr"
+cp -r hypr/ $"($env.HOME)/.config/hypr"
+
+# Waybar config
+rm -rf $"($env.HOME)/.config/waybar"
+cp -r waybar/ $"($env.HOME)/.config/waybar"
+
 # Compile isGit and install it on ${HOME}/bin
 gcc isGit.c -o isGit.app
 cp isGit.app $"($env.HOME)/bin/isGit"
