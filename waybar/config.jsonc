@@ -10,7 +10,6 @@
         "hyprland/workspaces"
     ],
     "modules-center": [
-        "hyprland/window"
     ],
     "modules-right": [
         "mpd",
@@ -22,10 +21,7 @@
         "memory",
         "temperature",
         "backlight",
-        "keyboard-state",
-        "sway/language",
         "battery",
-        "battery#bat2",
         "clock",
         "tray",
         "custom/power"
