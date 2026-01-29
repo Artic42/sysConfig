@@ -16,3 +16,6 @@ vim.g.maplocalleader = "\\"
 
 -- Diagnostic config
 vim.diagnostic.config { virtual_text = true }
+
+-- Conceal level
+vim.opt_local.conceallevel = 2
