@@ -25,3 +25,7 @@ vim.keymap.set("n", "<C-k><C-q>", ":xa<CR>")
 -- Enable or disable mouse
 vim.keymap.set("n", "<C-k><C-e>", "<cmd>set mouse=a<cr>")
 vim.keymap.set("n", "<C-k><C-d>", "<cmd>set mouse=<cr>")
+
+-- Change conceal leveles in the fly
+vim.keymap.set("n", "<leader>d1", "<cmd>set conceallevel=0")
+vim.keymap.set("n", "<leader>d2", "<cmd>set conceallevel=2")
