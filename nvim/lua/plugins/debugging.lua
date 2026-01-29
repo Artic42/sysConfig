@@ -4,6 +4,7 @@ return {
         "rcarriga/nvim-dap-ui",
         "nvim-neotest/nvim-nio",
         "mfussenegger/nvim-dap-python",
+        "theHamsta/nvim-dap-virtual-text", 
     },
     config = function()
         local dap = require("dap")
@@ -25,6 +26,7 @@ return {
         vim.keymap.set("n", "<Leader>db", dap.set_breakpoint, {})
         vim.keymap.set("n", "<Leader>dr", dap.repl.open, {})
         vim.keymap.set("n", "<Leader>dl", dap.run_last, {})
+        vim.keymap.set("n", "<leader>du", function() require("dapui").toggle() end)
 
         -- More complex functions
         vim.keymap.set("n", "<Leader>df", function()
@@ -53,6 +55,18 @@ return {
             dapui.close()
         end
 
+        
+        local dap = require("dap")
+
+	-- ===========================
+	-- PYTHON ADAPTER (your existing one)
+	-- ===========================
+	dap.adapters.python = {
+	    type = "executable",
+	    command = "python3",
+	    args = { "-m", "debugpy.adapter" },
+	}
+
         -- Python debugger config
         dap.configurations.python = {
             {
@@ -75,5 +89,31 @@ return {
                 end,
             },
         }
+
+	-- ===========================
+	-- GDB ADAPTER (C / C++)
+	-- ===========================
+	dap.adapters.gdb = {
+	    type = "executable",
+	    command = "gdb",
+	    args = { "-i", "dap" },
+	}
+
+	dap.configurations.cpp = {
+	    {
+		name = "Launch with GDB",
+		type = "gdb",
+		request = "launch",
+		program = function()
+		    return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+		end,
+		cwd = "${workspaceFolder}",
+		stopAtEntry = false,
+	    },
+	}
+
+	-- Reuse C++ config for C
+	dap.configurations.c = dap.configurations.cpp
+
     end,
 }

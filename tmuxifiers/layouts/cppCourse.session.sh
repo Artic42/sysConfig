@@ -12,7 +12,7 @@ if initialize_session "cppCourse"; then
   new_window "nVim"
   run_cmd "nvim"
   new_window "terminal"
-  new_window "cppman"
+  new_window "manPages"
 
   # Select the default active window on session creation.
   select_window 2
